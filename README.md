@@ -6,4 +6,4 @@ Medicare is a comprehensive and feature-rich web application built using the MER
 ![Doctors](https://github.com/wadchathuranga/Doctor-Appointment-Booking-MERN-Stack/assets/124532428/db8552ba-4542-4be4-915a-7f54f8964bf3)
 
 
-![Hero](https://github.com/wadchathuranga/Doctor-Appointment-Booking-MERN-Stack/assets/124532428/4a80f4e8-6bfc-48de-be26-99250067d161)
+![Hero](https://github.com/wadchathuranga/Doctor-Appointment-Booking-MERN-Stack/blob/main/Demo/Hero.PNG?raw=true)
