@@ -39,6 +39,8 @@ const Signup = () => {
 
   const submitHandler = async event => {
     event.preventDefault();
+    
+    console.log("🚀 ~ submitHandler ~ event:", formData);
     setLoading(true);
     try {
       const res = await fetch(`${BASE_URL}/auth/register`, {
@@ -48,7 +50,8 @@ const Signup = () => {
         },
         body: JSON.stringify(formData)
       });
-
+      
+      console.log("🚀 ~ submitHandler ~ res:", res)
       const {message} = await res.json();
 
       if (!res.ok) {

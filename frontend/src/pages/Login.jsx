@@ -3,7 +3,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import { BASE_URL } from '../../config';
 import { toast } from 'react-toastify';
 import HashLoader from 'react-spinners/HashLoader';
-// import { authContext } from '../context/AuthContext.jsx';
+import { useDispatch } from "react-redux";
+import { login, logout } from "../store/authSlice";
 
 const Login = () => {
   
@@ -14,7 +15,7 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   
   const navigate = useNavigate();
-  // const { dispatch } = useContext(authContext);
+  const dispatch = useDispatch();
 
   const handleInputChange = e => {
     setFormData({...formData,[e.target.name]: e.target.value});
@@ -37,16 +38,9 @@ const Login = () => {
       if (!res.ok) {
         throw new Error(result.message);
       }
-      console.log("🚀 ~ submitHandler ~ result:", result)
       
-      // dispatch({
-      //   type: 'LOGIN_SUCCESS',
-      //   payload: {
-      //     user: result.data,
-      //     token: result.token,
-      //     role: result.role,
-      //   },
-      // });
+      // dispatch(login());
+      console.log("🚀 ~ submitHandler ~ result:", result)
 
       
       setLoading(false);
