@@ -39,13 +39,15 @@ const Login = () => {
         throw new Error(result.message);
       }
       
-      // dispatch(login());
-      console.log("🚀 ~ submitHandler ~ result:", result)
-
+      localStorage.setItem("userData", JSON.stringify(result.data));
+      localStorage.setItem("role", JSON.stringify(result.role));
+      localStorage.setItem("token", JSON.stringify(result.token));
+      dispatch(login(result));
       
       setLoading(false);
       toast.success(result.message)
-      navigate('/home');
+      console.log("🚀 ~ submitHandler ~ result:", result)
+      // navigate('/home');
     } catch (error) {
       setLoading(false);
       toast.error(error.message);
@@ -83,7 +85,7 @@ const Login = () => {
             <button
               type="submit"
               className="w-full bg-primaryColor text-white text-[18px] leading-[30px] rounded-lg px-4 py-3">
-              Login
+              {loading ? <HashLoader size={35} color='#ffffff'/> : 'Login'}
             </button>
           </div>
           <p className="mt-5 text-textColor text-center">

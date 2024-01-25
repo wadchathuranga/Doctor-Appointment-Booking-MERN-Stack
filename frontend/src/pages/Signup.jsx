@@ -51,7 +51,6 @@ const Signup = () => {
         body: JSON.stringify(formData)
       });
       
-      console.log("🚀 ~ submitHandler ~ res:", res)
       const {message} = await res.json();
 
       if (!res.ok) {

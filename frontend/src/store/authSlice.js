@@ -1,9 +1,9 @@
-import { createSlice, nanoid } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    userData: null,
-    role: null,
-    token: null,
+    userData: localStorage.getItem("userData") ? JSON.parse(localStorage.getItem("userData")) : null,
+    role: localStorage.getItem("role") ? JSON.parse(localStorage.getItem("role")) : null,
+    token: localStorage.getItem("token") ? JSON.parse(localStorage.getItem("token")) : null,
 };
 
 const authSlice = createSlice({
@@ -11,7 +11,7 @@ const authSlice = createSlice({
     initialState,
     reducers: {
         login: (state, action) => {
-            state.userData = action.payload.userData,
+            state.userData = action.payload.data,
                 state.token = action.payload.token,
                 state.role = action.payload.role
         },

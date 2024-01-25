@@ -4,8 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 function Protected({ children, authentication = true }) {
 
-  const authStatus = useSelector((state) => state.auth.token ? state.auth.token : false );
-  console.log("🚀 ~ Protected ~ authStatus:", authStatus)
+  const authStatus = useSelector((state) => state.auth.token ? true : false );
 
   const navigate = useNavigate();
   const [loader, setLoader] = useState(true);
@@ -14,7 +13,7 @@ function Protected({ children, authentication = true }) {
     if (authentication && authStatus !== authentication) {
       navigate("/login")
     } else if (!authentication && authStatus !== authentication ){
-      navigate("/")
+      navigate("/home")
     }
     setLoader(false);
   }, [authStatus, authentication, navigate]);

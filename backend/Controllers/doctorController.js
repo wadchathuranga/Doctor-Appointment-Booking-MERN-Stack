@@ -1,3 +1,4 @@
+import Booking from "../models/BookingSchema.js";
 import Doctor from "../models/DoctorSchema.js"; // Import the Doctor model
 
 export const updateDoctor = async (req, res) => {
@@ -107,5 +108,32 @@ export const getAllDoctor = async (req, res) => {
       message: "Failed to retrieve doctors!",
       data: error.message,
     });
+  }
+};
+
+export const getDoctorProfile = async (req, res) => {
+  const doctorId = req.userId;
+  try {
+    const doctor = await Doctor.findById(doctorId);
+    if (!doctor) {
+      return res
+        .status(404)
+        .Json({ success: false, nessage: "Doctor not found!" });
+    }
+
+    const { password, ...rest } = doctor._doc;
+    const appointments = await Booking.find({ doctors: doctorId });
+
+    res
+      .status(200)
+      .json({
+        success: true,
+        message: "Profile info is getting",
+        data: { ...rest, appointments },
+      });
+  } catch (err) {
+    res
+      .status(500)
+      .json({ success: false, message: "Sonething went wrong, cannot get" });
   }
 };
