@@ -71,6 +71,8 @@ const Profile = ({ userInfo }) => {
         throw new Error(result.message);
       }
 
+      // I think instead of using response data, I think 
+      // best way to handle user data again fetchin from the DB
       dispatch(update(result));
 
       setSelectedFile(null);
