@@ -63,7 +63,7 @@ const router = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: "users/profile/me",
+        path: "/users/profile/me",
         element: (
           <Protected authentication>
             <MyAccount />
