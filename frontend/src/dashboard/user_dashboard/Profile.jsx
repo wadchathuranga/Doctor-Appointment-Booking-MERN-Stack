@@ -2,13 +2,15 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import HashLoader from "react-spinners/HashLoader";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { BASE_URL } from "../../../config";
 import uploadImageToCloudinary from "../../utils/uploadCloudinary";
 import avatar from "../../assets/images/doctor-img01.png";
+import { login, update } from "../../store/authSlice";
 
 const Profile = ({ userInfo }) => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.auth);
 
@@ -64,11 +66,13 @@ const Profile = ({ userInfo }) => {
       });
 
       const result = await res.json();
+      console.log("🚀 ~ submitHandler ~ result:", result)
 
       if (!res.ok) {
         throw new Error(result.message);
       }
 
+      dispatch(update(result));
       localStorage.setItem("userData", JSON.stringify(result.data));
 
       setLoading(false);

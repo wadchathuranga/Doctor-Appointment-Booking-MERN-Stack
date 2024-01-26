@@ -18,7 +18,7 @@ export const updateUser = async (req, res) => {
       message: "Successfully updated",
       data: updatedUser,
       role: req.role,
-      token: req.headers.authorization,
+      token: req.token,
     });
   } catch (error) {
     res.status(500).json({

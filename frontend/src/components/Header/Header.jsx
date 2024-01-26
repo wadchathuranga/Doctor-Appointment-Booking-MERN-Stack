@@ -30,7 +30,6 @@ const Header = () => {
   const menuRef = useRef(null)
   const userData = useSelector((state) => state.auth.userData );
   const token = useSelector((state) => state.auth.token );
-  const role = useSelector((state) => state.auth.role );
 
   const handleStickyHeader = () => {
     window.addEventListener('scroll' , () => {
@@ -80,14 +79,14 @@ const Header = () => {
           {
             token && userData ? 
               <>
-                <Link to={`${role === 'doctor' ? '/doctors/profile/me' : '/users/profile/me'}`}>
+                <Link to={`${userData.role === 'doctor' ? '/doctors/profile/me' : '/users/profile/me'}`}>
                   <div>
                     <figure className='w-[35px] h-[35px] rounded-full cursor-pointer'>
                       <img src={userData?.photo ? userData.photo : userImg} className='w-full rounded-full' alt="" />
                     </figure>
                   </div> 
                 </Link>
-                <Link to={`${role === 'doctor' ? '/doctors/profile/me' : '/users/profile/me'}`}>
+                <Link to={`${userData.role === 'doctor' ? '/doctors/profile/me' : '/users/profile/me'}`}>
                   <h2>{userData?.name}</h2>
                 </Link>
               </>
@@ -97,9 +96,6 @@ const Header = () => {
                   Login</button>
                 </Link>
           }
-
-                   
-          
             <span className='md:hidden' onClick={toggleMenu}>
               <BiMenu className='w-6 h-6 cursor-pointer'/>
             </span>    

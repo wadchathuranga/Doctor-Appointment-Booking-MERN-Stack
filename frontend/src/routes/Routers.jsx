@@ -23,7 +23,3 @@ const Routers = () => {
 }
 
 export default Routers
-
-
-// /doctors/profile/me
-// /users/profile/me
