@@ -3,8 +3,6 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { Provider } from "react-redux";
 import store from "./store/store.js";
 import Home from "./pages/Home.jsx";
@@ -85,15 +83,8 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router}>
-        <ToastContainer
-          theme="dark"
-          position="top-right"
-          autoClose={3000}
-          closeOnClick
-          pauseOnHover={false}
-        />
-      </RouterProvider>
+      <RouterProvider router={router} />
+       
     </Provider>
   </React.StrictMode>
 );
