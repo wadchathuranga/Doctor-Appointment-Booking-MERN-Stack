@@ -1,10 +1,10 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../../config';
 import { toast } from 'react-toastify';
 import HashLoader from 'react-spinners/HashLoader';
 import { useDispatch } from "react-redux";
-import { login, logout } from "../store/authSlice";
+import { login } from "../store/authSlice";
 
 const Login = () => {
   
@@ -46,8 +46,7 @@ const Login = () => {
       
       setLoading(false);
       toast.success(result.message)
-      console.log("🚀 ~ submitHandler ~ result:", result)
-      // navigate('/home');
+      navigate('/home');
     } catch (error) {
       setLoading(false);
       toast.error(error.message);
