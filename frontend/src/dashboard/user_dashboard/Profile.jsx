@@ -66,15 +66,14 @@ const Profile = ({ userInfo }) => {
       });
 
       const result = await res.json();
-      console.log("🚀 ~ submitHandler ~ result:", result)
 
       if (!res.ok) {
         throw new Error(result.message);
       }
 
       dispatch(update(result));
-      localStorage.setItem("userData", JSON.stringify(result.data));
 
+      setSelectedFile(null);
       setLoading(false);
       toast.success(result.message);
       navigate("/users/profile/me");
@@ -140,7 +139,7 @@ const Profile = ({ userInfo }) => {
           <input
             type="text"
             placeholder="Contact No."
-            name="name"
+            name="contactNo"
             value={formData.contactNo}
             onChange={handleInputChange}
             className="w-full pr-4 py-3 border-b border-solid border-[#0066ff61] focus:outline-none focus:border-b-primaryColor text-[16px] leading-7 text-headingColor placeholder:text-textColor cursor-pointer"
@@ -155,7 +154,7 @@ const Profile = ({ userInfo }) => {
               onChange={handleInputChange}
               className="text-textColor font-semibold text-[15px] leading-7 px-4 py-3 focus:outline-none"
             >
-              <option value=""></option>
+              <option value="" disabled></option>
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>

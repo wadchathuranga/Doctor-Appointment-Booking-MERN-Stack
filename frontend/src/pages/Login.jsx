@@ -39,9 +39,6 @@ const Login = () => {
         throw new Error(result.message);
       }
       
-      localStorage.setItem("userData", JSON.stringify(result.data));
-      localStorage.setItem("role", JSON.stringify(result.role));
-      localStorage.setItem("token", JSON.stringify(result.token));
       dispatch(login(result));
       
       setLoading(false);

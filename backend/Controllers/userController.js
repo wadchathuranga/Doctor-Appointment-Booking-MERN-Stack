@@ -11,13 +11,11 @@ export const updateUser = async (req, res) => {
       { $set: req.body },
       { new: true }
     ).select("-password");
-    console.log("🚀 ~ updateUser ~ updatedUser:", updatedUser)
 
     res.status(200).json({
       success: true,
       message: "Successfully updated",
       data: updatedUser,
-      role: req.role,
       token: req.token,
     });
   } catch (error) {
