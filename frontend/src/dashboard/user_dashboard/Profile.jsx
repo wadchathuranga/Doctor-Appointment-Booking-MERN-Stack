@@ -64,6 +64,7 @@ const Profile = ({ userInfo }) => {
       });
 
       const result = await res.json();
+      console.log("🚀 ~ submitHandler ~ result:", result)
 
       if (!res.ok) {
         throw new Error(result.message);
