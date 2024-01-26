@@ -13,11 +13,14 @@ const authSlice = createSlice({
             const { data, token } = action.payload;
             state.userData = data;
             state.token = token;
+            localStorage.setItem("userData", JSON.stringify(data));
+            localStorage.setItem("token", JSON.stringify(token));
         },
         update: (state, action) => {
             const { data, token } = action.payload;
             state.userData = data;
             state.token = token;
+            localStorage.setItem("userData", JSON.stringify(data));
         },
         logout: (state) => {
             state.userData = null;

@@ -66,15 +66,14 @@ const Profile = ({ userInfo }) => {
       });
 
       const result = await res.json();
-      console.log("🚀 ~ submitHandler ~ result:", result)
 
       if (!res.ok) {
         throw new Error(result.message);
       }
 
       dispatch(update(result));
-      localStorage.setItem("userData", JSON.stringify(result.data));
 
+      setSelectedFile(null);
       setLoading(false);
       toast.success(result.message);
       navigate("/users/profile/me");
