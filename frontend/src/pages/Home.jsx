@@ -49,9 +49,11 @@ const Home = () => {
                  their well-being and seek expert healthcare advice with 
                  ease and convenience.
                 </p>
-                <button className='btn'>
-                Request An Appointment
-                </button>
+                <Link to='/doctors'>
+                  <button className='btn'>
+                  Request An Appointment
+                  </button>
+                </Link>
               </div>
 
               <div className='mt-[30px] lg:mt-[70px] flex flex-col lg:flex-row lg:items-center gap-5 
@@ -88,13 +90,16 @@ const Home = () => {
             </div> 
 
             <div className='flex gap-[30px] justify-end'>
-              <div>
+            <div className='w-full hidden md:block'>
+              <img src={faqImg} alt="" />
+            </div>
+              {/* <div>
                 <img className='w-full' src={heroImg01} alt="" />
-              </div>
-              <div className='mt-[30px]'>
+              </div> */}
+              {/* <div className='mt-[30px]'>
                 <img src={heroImg02}  alt="" className='w-full mb-[30px]'/>
                 <img src={heroImg03} alt="" className='w-full' />
-              </div>
+              </div> */}
             </div>
 
           </div>
@@ -103,7 +108,7 @@ const Home = () => {
 
       {/* How It Work section */} 
 
-      <section>
+      {/* <section>
         <div className="container">
           <div className='lg:w-[470px] mx-auto'>
             <h2 className='heading text-center'>Providing The Best Medical Services</h2>
@@ -184,15 +189,15 @@ const Home = () => {
 
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* About section */} 
 
-      <About/>
+      {/* <About/> */}
 
       {/* Services section */} 
 
-      <section>
+      {/* <section>
         <div className="container">
           <div className='xl:w-[470px] mx-auto'>
             <h2 className='heading text-center'>Our Medical Services</h2>
@@ -201,14 +206,13 @@ const Home = () => {
             </p>
           </div>
 
-
           <ServiceList />
         </div>
-      </section>
+      </section> */}
 
       {/* Feature section */} 
 
-      <section>
+      {/* <section>
         <div className="container">
           <div className="flex items-center justify-between flex-col lg:flex-row">
 
@@ -268,11 +272,11 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Doctors section */}
 
-      <section>
+      {/* <section>
         <div className="container">
         <div className='xl:w-[470px] mx-auto'>
             <h2 className='heading text-center'>Our Great Doctors</h2>
@@ -283,11 +287,11 @@ const Home = () => {
 
           <DoctorList/>
         </div>
-      </section> 
+      </section>  */}
 
       {/* FAQ section */}
 
-      <section>
+      {/* <section>
         <div className="container">
           <div className='flex justify-between gap-[50px] lg:gap-0'>
             <div className='w-1/2 hidden md:block'>
@@ -301,10 +305,10 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
     { /* testimonial */ }
-      <section>
+      {/* <section>
         <div className="container">
         <div className='xl:w-[470px] mx-auto'>
             <h2 className='heading text-center'>What Our Patients Say</h2>
@@ -315,7 +319,7 @@ const Home = () => {
 
           <Testimonial/>
         </div>
-      </section>
+      </section> */}
     </>
   )
 }
