@@ -21,10 +21,12 @@ const authSlice = createSlice({
             state.userData = data;
             state.token = token;
             localStorage.setItem("userData", JSON.stringify(data));
+            localStorage.setItem("token", JSON.stringify(token));
         },
         logout: (state) => {
             state.userData = null;
             state.token = null;
+            localStorage.clear();
         }
     }
 });

@@ -16,7 +16,6 @@ const MyAccount = () => {
   const logoutHandler = () => {
     dispatch(logout());
     navigate('/');
-    localStorage.clear();
   };
 
   return (
