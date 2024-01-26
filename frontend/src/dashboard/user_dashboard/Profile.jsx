@@ -72,7 +72,7 @@ const Profile = ({ userInfo }) => {
       }
 
       // I think instead of using response data, I think 
-      // best way to handle user data again fetchin from the DB
+      // best way to handle user data again fetchin from the DB using useEffect hook
       dispatch(update(result));
 
       setSelectedFile(null);
